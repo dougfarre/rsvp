@@ -1,0 +1,71 @@
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+
+	<% @invitations.each do |inv| %>
+		<div class="row">
+			<div class="span2" >
+				<div class="right" >
+					<div style="width: 100%; height: 25px;"></div>
+					<table><tr/>
+						<td><%= link_to 'show', inv %></td>
+						<td> | </td>
+    				<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
+						<td> | </td>
+    				<td><%= link_to 'destroy', inv, confirm: 'are you sure?', method: :delete %></td>
+					</tr></table>
+				</div>
+  		</div>
+
+			<div class="span2">
+   			<%= sortable( "first_names", "First names") %>
+   			<%= text_field_tag :first_names, inv.first_names, :readonly => true %>
+  		</div>
+			<div class="span2">
+    		<%= sortable("last_name", "Last name") %>
+    		<%= text_field_tag :last_name, inv.last_name, :readonly => true %>
+			</div>
+			<div class="span2">
+   			<%= label_tag :invite_code %>
+   			<%= text_field_tag :invite_code, inv.invite_code, :readonly => true %>
+  		</div>
+			<div class="span2">
+				<table>
+					<tr>
+						<td>&nbsp;</td>
+   					<td><%= sortable("spots", "Spots") %></td>
+						<td>&nbsp;</td>
+						<td><%= sortable("rsvp_number", "Rsvp") %></td>
+						<td>&nbsp;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+   					<td><%= number_field_tag :spots, inv.spots, :readonly => true %></td>
+						<td>&nbsp;</td>
+   					<td><%= number_field_tag :rsvp_number, inv.rsvp_number, :readonly => true %></td>
+						<td>&nbsp;</td>
+						<td style="vertical-align: middle;">
+							&nbsp;
+						</td>
+					</tr>
+				</table>
+  		</div>
+			<div class="span2">
+				<div class="left">
+					<div class="center2">
+						<%= sortable("admin", "Owner") %>
+						<%= text_field_tag :admin, inv.admin.email %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="row">
+		<div class="span12">
+			<div class="center2 kill">
+				<%= will_paginate @invitations %>
+			</div>
+		</div>
+	</div>
+

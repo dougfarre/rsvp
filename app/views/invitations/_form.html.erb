@@ -1,0 +1,168 @@
+<%= form_for(@invitation) do |f| %>
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+				<% if @invitation.errors.any? %>
+    			<div id="error_explanation">
+						<h2>please fix the following:</h2>
+      			<ul>
+      				<% @invitation.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      				<% end %>
+      			</ul>
+    			</div>
+  			<% end %>
+		</div>
+	</div>
+
+  	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<p class="message">
+    		<%= @invitation.login_message %>  
+			</p>
+		</div>
+	</div>
+
+<div class="row">
+	<div class="span4">
+  	<div class="right">
+			<div class="center2">
+    		<%= f.label :first_names %>
+    		<%= f.text_field :first_names, :readonly => true %>
+			</div>
+  	</div>
+	</div>
+
+	<div class="span4">
+  	<div class="center2">
+    	<%= f.label :last_name %>
+    	<%= f.text_field :last_name, :readonly => true %>
+  	</div>
+	</div>
+
+	<div class="span4">
+		<div class="left">
+			<div class="center2">
+    		<%= f.label :invite_code %>
+    		<%= f.text_field :invite_code, :readonly => true %>
+			</div>
+  	</div>
+	</div>
+</div> <!-- end row one -->
+
+<%= f.fields_for :address do |a| %>
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+    			<%= a.label :street %>
+    			<%= a.text_field :street %>
+  			</div>
+			</div>
+		</div>
+
+		<div class="span4">
+  		<div class="center2">
+    		<%= a.label :city %>
+    		<%= a.text_field :city %>
+  		</div>
+		</div>
+
+		<div class="span4">
+  		<div class="left">
+				<div class="center2">
+					<%= a.label :state %>
+    			<%= a.text_field :state %>
+  			</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+					<%= a.label :zip %>
+    			<%= a.text_field :zip %>
+  			</div>
+			</div>
+		</div>
+
+		<div class="span4">
+  		<div class="center2">
+				<%= a.label :cell %>
+    		<%= a.telephone_field :cell %>
+  		</div>
+		</div>
+
+		<div class="span4">
+  		<div class="left">
+				<div class="center2">
+					<%= a.label :email %>
+    			<%= a.email_field :email %>
+  			</div>
+			</div>
+		</div>
+	</div>	
+<% end %>
+
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<div class="center2">
+				<br/>
+				<fieldset>
+					<legend>number attending</legend>
+					<% none_selection = "I can't go" %>
+					<% if @invitation.spots > 1 %>
+						<% none_selection = "we can't go" %>
+					<% end %>
+				  <%  (0..@invitation.spots).each do |spot| %>
+						<%= radio_button_tag 'rsvp_number', spot, @invitation.rsvp_number == spot %>
+						<% if spot == 0 %>
+							<%= none_selection %>
+						<% elsif spot == 1 %>
+							<%= "#{spot} person is attending"  %>
+						<% else %>
+							<%= "#{spot} people are attending"  %>
+						<% end %>
+						<% unless @invitation.spots == spot %>
+							<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+						<% end %>
+					<% end %>
+				</fieldset>
+			</div>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<div class="center2">
+				<br/>
+				<br/>
+				<fieldset>
+					<legend>leave comments</legend>
+    			<%= f.text_area :feedback, :rows => 2, :cols => 50 %>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<div class="center2">
+				<br/>
+				<br/>
+  			<div class="actions">
+					<%= f.submit %><br/>
+					<span>you can update this information at any time using your invite code
+				</div>
+			</div>
+		</div>
+	</div>
+
+      </div>
+<% end %>

@@ -1,0 +1,184 @@
+<div class="row">
+	<div class="span12">
+		<header class="gen_title"> 	
+			<h2 class="center-align">show invitation</h2>
+			<p class="notice"><%= notice %></p>
+		</header>
+	</div>
+</div>
+<div class="show">
+<%= form_for(@invitation) do |f| %>
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+				<% if @invitation.errors.any? %>
+    			<div id="error_explanation">
+						<h2>please fix the following:</h2>
+      			<ul>
+      				<% @invitation.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      				<% end %>
+      			</ul>
+    			</div>
+  			<% end %>
+		</div>
+	</div>
+
+  	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<p class="message">
+    		<%= @invitation.login_message %>  
+			</p>
+		</div>
+	</div>
+
+<div class="row">
+	<div class="span4">
+  	<div class="right">
+			<div class="center2">
+    		<%= f.label :first_names %>
+    		<%= f.text_field :first_names, :readonly => true %>
+			</div>
+  	</div>
+	</div>
+
+	<div class="span4">
+  	<div class="center2">
+    	<%= f.label :last_name %>
+    	<%= f.text_field :last_name, :readonly => true %>
+  	</div>
+	</div>
+
+	<div class="span4">
+		<div class="left">
+			<div class="center2">
+    		<%= f.label :invite_code %>
+    		<%= f.text_field :invite_code, :readonly => true %>
+			</div>
+  	</div>
+	</div>
+</div> <!-- end row one -->
+
+<%= f.fields_for :address do |a| %>
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+    			<%= a.label :street %>
+    			<%= a.text_field :street , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+
+		<div class="span4">
+  		<div class="center2">
+    		<%= a.label :city %>
+    		<%= a.text_field :city , :readonly => true %>
+  		</div>
+		</div>
+
+		<div class="span4">
+  		<div class="left">
+				<div class="center2">
+					<%= a.label :state %>
+    			<%= a.text_field :state , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+					<%= a.label :zip %>
+    			<%= a.text_field :zip , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+
+		<div class="span4">
+  		<div class="center2">
+				<%= a.label :cell %>
+    		<%= a.telephone_field :cell , :readonly => true %>
+  		</div>
+		</div>
+
+		<div class="span4">
+  		<div class="left">
+				<div class="center2">
+					<%= a.label :email %>
+    			<%= a.email_field :email , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+	</div>	
+<% end %>
+
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+					<%= f.label :spots, 'Spots allowed' %>
+    			<%= f.number_field :spots , :readonly => true %>
+  			</div>
+			</div>
+		</div>	
+		<div class="span4">
+			<div class="center2">
+				<%= f.label :rsvp_number, 'Rsvp number' %>
+    		<%= f.number_field :rsvp_number , :readonly => true %>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="left">
+				<div class="center2">
+					<%= f.label :gift %>
+    			<%= f.text_field :gift , :readonly => true %>
+  			</div>
+			</div>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="span5 offset1">
+			<div class="right">
+				<%= f.label :login_message %>
+    		<%= f.text_area :login_message, :readonly => true %>
+			</div>
+		</div>
+		<div class="span5">
+			<div class="left">
+				<%= f.label :feedback %>
+    		<%= f.text_area :feedback , :readonly => true %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<div class="center2">
+    		<span>Thank you note sent?</span>&nbsp;&nbsp;<%= f.check_box :thank_you , :readonly => true %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<div class="center2">
+				<br/>
+				<br/>
+				<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+				<%= link_to 'Back', invitations_path %>
+			</div>
+		</div>
+	</div>
+
+      </div>
+<% end %>
+</div>
+
+

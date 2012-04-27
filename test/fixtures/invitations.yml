@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  last_name: MyString
+  first_names: MyString
+  spots: 1
+  login_message: MyString
+  feedback: MyString
+
+two:
+  last_name: MyString
+  first_names: MyString
+  spots: 1
+  login_message: MyString
+  feedback: MyString

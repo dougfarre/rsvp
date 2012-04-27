@@ -1,0 +1,93 @@
+<div class="row">
+	<div class="span12">
+		<header class="gen_title"> 	
+			<h2 class="center-align">dashboard</h2>
+			<p class="notice"><%= notice %></p>
+		</header>
+	</div>
+</div>
+
+<div id="list">
+<% @invitations.each do |invitation| %>
+<%= form_for invitation do |f| %>
+	<div class="row">
+		<div class="span2" >
+			<div class="right" >
+				<div style="width: 100%; height: 15px;"></div>
+				<%= f.submit 'View' %>
+				<%= f.submit 'Delete' %>
+				<%= f.submit 'Update' %>
+			</div>
+  	</div>
+
+		<div class="span2">
+   		<%= f.label :first_names %>
+   		<%= f.text_field :first_names %>
+  	</div>
+
+		<div class="span2">
+    	<%= f.label :last_name %>
+    	<%= f.text_field :last_name %>
+		</div>
+
+		<div class="span2">
+   		<%= f.label :invite_code %>
+   		<%= f.text_field :invite_code, :readonly => true %>
+  	</div>
+		
+		<div class="span2">
+   		<%= f.label :spots, 'Spots allowed' %>
+   		<%= f.number_field :spots %>
+  	</div>
+		<div class="span2">
+   		<%= f.label :rsvp_number %>
+   		<%= f.number_field :rsvp_number %>
+  	</div>
+	</div>
+<% end %>
+<% end %>
+
+<div class="row">
+	<div class="span12">
+		<br/><br/>
+		<fieldset class="gen_title"> 	
+			<legend>add new</h2>
+		</fieldset>
+		<%= form_for @new_invitation do |f| %>
+	<div class="row">
+		<div class="span2" >
+			<div class="right" >
+				<div style="width: 100%; height: 15px;"></div>
+				<%= f.submit 'Add' %>
+			</div>
+  	</div>
+
+		<div class="span2">
+   		<%= f.label :first_names %>
+   		<%= f.text_field :first_names %>
+  	</div>
+
+		<div class="span2">
+    	<%= f.label :last_name %>
+    	<%= f.text_field :last_name %>
+		</div>
+
+		<div class="span2">
+   		<%= f.label :invite_code %>
+   		<%= f.text_field :invite_code, :readonly => true %>
+  	</div>
+		
+		<div class="span2">
+   		<%= f.label :spots, 'Spots allowed' %>
+   		<%= f.number_field :spots %>
+  	</div>
+		<div class="span2">
+   		<%= f.label :rsvp_number %>
+   		<%= f.number_field :rsvp_number %>
+  	</div>
+	</div>
+<% end %>
+
+	</div>
+</div>
+</div>
