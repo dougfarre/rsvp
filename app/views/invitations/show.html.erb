@@ -133,6 +133,15 @@
 	</div>
 
 	<div class="row">
+		<div class="span4 offset4">
+			<div class="center2">
+				<%= f.label :email, "Invitation Email" %>
+    		<%= f.email_field :email, :readonly => true %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
 		<div class="span5 offset1">
 			<div class="right">
 				<%= f.label :login_message %>
@@ -162,7 +171,9 @@
 			<div class="center2">
 				<br/>
 				<br/>
-				<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+				<% if @invitation.admin_id == current_admin.id %>
+					<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+				<% end %>
 				<%= link_to 'Back', invitations_path %>
 			</div>
 		</div>

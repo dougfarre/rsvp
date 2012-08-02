@@ -97,8 +97,8 @@
 			<div class="span4">
   			<div class="left">
 					<div class="center2">
-						<%= a.label :email %>
-    				<%= a.email_field :email %>
+						<%= a.label :email, "Contact Email" %>
+    				<%= a.email_field :email, :read_only => true %>
   				</div>
 				</div>
 			</div>
@@ -130,6 +130,13 @@
 		</div>	
 	</div>
 
+	<div class="row">
+		<div class="span4 offset4">
+			<div class="center2">
+				<%= f.label :email, "Invitation Email" %>
+    		<%= f.email_field :email %>
+		</div>
+	</div>
 	<% if @invitation.address.blank? %>
 		<div class=row>
 			<div class="span2 offset5">

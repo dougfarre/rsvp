@@ -6,6 +6,9 @@
  *= require_tree .
 */
 
+.red_letters {
+	color: red;
+}
 .registry {
 	text-decoration: underline !important;
 	font-size: 16px;

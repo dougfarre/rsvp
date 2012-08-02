@@ -6,17 +6,23 @@
 			<div class="span2" >
 				<div class="right" >
 					<div style="width: 100%; height: 25px;"></div>
-					<table><tr/>
-						<td><%= link_to 'show', inv %></td>
-						<% if inv.admin_id == current_admin.id %>
-							<td> | </td>
-    					<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
-							<td> | </td>
-    					<td>
-								<%= link_to 'destroy', inv, confirm: 'are you sure?', method: :delete %>
-							</td>
-						<% end %>
-					</tr></table>
+					<% if inv.email.blank? %>
+						<table class="red_letters">
+					<% else %>
+						<table>
+					<% end %>
+						<tr/>
+							<td><%= link_to 'show', inv %></td>
+							<% if inv.admin_id == current_admin.id %>
+								<td> | </td>
+    						<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
+								<td> | </td>
+    						<td>
+									<%= link_to 'destroy', inv, confirm: 'are you sure?', method: :delete %>
+								</td>
+							<% end %>
+						</tr>
+					</table>
 				</div>
   		</div>
 
