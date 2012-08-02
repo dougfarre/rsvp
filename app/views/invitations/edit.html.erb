@@ -24,15 +24,6 @@
 		</div>
 	</div>
 
-  <div class="row">
-		<div class="span2">&nbsp;</div>
-		<div class="span8">
-			<p class="message">
-    		<%= @invitation.login_message %>  
-			</p>
-		</div>
-	</div>
-
 	<div class="row">
 		<div class="span4">
   		<div class="right">
@@ -57,6 +48,9 @@
   		</div>
 		</div>
 	</div> <!-- end row one -->
+
+	<div id="address_div">
+	</div>
 
 	<%= f.fields_for :address do |a| %>
 		<div class="row">
@@ -123,7 +117,7 @@
 		<div class="span4">
 			<div class="center2">
 				<%= f.label :rsvp_number, 'Rsvp number' %>
-    		<%= f.number_field :rsvp_number %>
+    		<%= f.number_field :rsvp_number, :readonly => true %>
 			</div>
 		</div>
 		<div class="span4">
@@ -135,6 +129,18 @@
 			</div>
 		</div>	
 	</div>
+
+	<% if @invitation.address.blank? %>
+		<div class=row>
+			<div class="span2 offset5">
+				<div class="center2">
+					<span>Add address?&nbsp;</span>
+					<%= check_box_tag :add_address, @invitation.address.blank? %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
 
 	<div class="row">
 		<div class="span5 offset1">

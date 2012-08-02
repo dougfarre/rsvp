@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="span12">
+		<header class="gen_title"> 	
+			<h2 class="center-align">registry</h2>
+		</header>
+	</div>
+</div>
+
+<div class="registry row">
+	<div class="span2 offset2 center">
+		<a href='http://pss.united.com/web/en-US/apps/products/gifts/Account/Contribution.aspx?sender=TECH&camp=giftaccount_announce&campyear=2012&Language=en-US&gNum=jbcafXMe3tqaYHW%2b0jmur1wIPeW7ztg8&gEmail=27695'>United Airlines</a>
+	</div>
+	<div class="span2 center">
+		<%= link_to "Gift Cash", "javascript:void(0)", {:id => "gift_cash"} %>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="HPKNYWH86WL7C">
+			<div style="display: none;">
+				<input id="submit_to_paypal" type="image" src="" name="submit">
+			</div>
+		</form>
+	</div>
+	<div class="span2 center">
+		<a href='http://www.amazon.com/registry/wedding/2S8ERL9VGXPDF'>Amazon</a>
+	</div>
+</div>
+
+
+<script type='text/javascript'>
+	$(document).ready(function () {
+		$('#registry').addClass('active');	
+		$('#gift_cash').bind('click', function() {$('#submit_to_paypal').click()});
+	});
+</script>
+

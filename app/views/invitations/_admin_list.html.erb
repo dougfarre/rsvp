@@ -8,10 +8,14 @@
 					<div style="width: 100%; height: 25px;"></div>
 					<table><tr/>
 						<td><%= link_to 'show', inv %></td>
-						<td> | </td>
-    				<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
-						<td> | </td>
-    				<td><%= link_to 'destroy', inv, confirm: 'are you sure?', method: :delete %></td>
+						<% if inv.admin_id == current_admin.id %>
+							<td> | </td>
+    					<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
+							<td> | </td>
+    					<td>
+								<%= link_to 'destroy', inv, confirm: 'are you sure?', method: :delete %>
+							</td>
+						<% end %>
 					</tr></table>
 				</div>
   		</div>
@@ -36,7 +40,7 @@
 						<td>&nbsp;</td>
 						<td><%= sortable("rsvp_number", "Rsvp") %></td>
 						<td>&nbsp;</td>
-						<td></td>
+						<td><%= sortable("admin_id", "Owner") %></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
@@ -44,20 +48,10 @@
 						<td>&nbsp;</td>
    					<td><%= number_field_tag :rsvp_number, inv.rsvp_number, :readonly => true %></td>
 						<td>&nbsp;</td>
-						<td style="vertical-align: middle;">
-							&nbsp;
-						</td>
+						<td><%= text_field_tag :admin, inv.admin.email.split('@')[0], :readonly => true %></td>
 					</tr>
 				</table>
   		</div>
-			<div class="span2">
-				<div class="left">
-					<div class="center2">
-						<%= sortable("admin", "Owner") %>
-						<%= text_field_tag :admin, inv.admin.email %>
-					</div>
-				</div>
-			</div>
 		</div>
 	<% end %>
 

@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
 			return
 		end
 
-		@invitations = Invitation.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 2, :page => params[:page])
+		@invitations = Invitation.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
 		@new_invitation = Invitation.new
 		@reports = Invitation.get_reports
 
@@ -90,7 +90,10 @@ class InvitationsController < ApplicationController
 
 		if admin_signed_in?
 			@invitation.attributes = params[:invitation] 
-			@invitation.change_address(params[:address])
+
+			unless params[:address].blank? 
+				@invitation.change_address(params[:address])
+			end
 			
       if @invitation.save
        	redirect_to @invitation, notice: "Invitation successfully updated."
@@ -137,7 +140,7 @@ class InvitationsController < ApplicationController
 
 	def sort_column
 		params[:sort] || "first_names"
-		%w[first_names last_name spots rsvp_number].include?(params[:sort]) ? params[:sort] : "first_names"
+		%w[first_names last_name spots rsvp_number admin_id].include?(params[:sort]) ? params[:sort] : "first_names"
 	end
 
 	def sort_direction

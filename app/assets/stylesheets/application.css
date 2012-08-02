@@ -5,6 +5,13 @@
  *= require_self
  *= require_tree .
 */
+
+.registry {
+	text-decoration: underline !important;
+	font-size: 16px;
+	font-weight: bold;
+	color: blue !important;
+}
 .pagination a {
 	float: none !important;
 }
@@ -58,7 +65,7 @@
 	font-weight: bold;
 	margin: -7px -7px 0;
 	padding: 5px 5px 5px 15px;
-	/*text-align: center !important;*/
+	/*text-align:  rowcenter !important;*/
 }
 #error_explanation {
 	background-color: transparent !important;
@@ -124,7 +131,8 @@ input[type="submit"] {
 	border-radius: 10px;
 	-khtml-border-radius: 10px;
 	width: 100%;
-	width: px;
+	/*width: px;*/
+	min-width: 380px;
 	height: 75px;
 	display: inline-block;
 	background-color: black;
@@ -156,7 +164,7 @@ input[type="submit"] {
 
 }
 
-body 				{ padding-top: 7em !important; }
+/*body 				{ padding-top: 7em !important; }
 .nav_center { 
 	padding-top: 1em !important; 
 	font-size: 18px !important;
@@ -169,7 +177,7 @@ body 				{ padding-top: 7em !important; }
 .nav_bottom {
 	padding-top: .1em !important;
 	padding-bottom: 0px !important;
-}
+}*/
 
 .masthead h1 {
 	margin-bottom: 18px;

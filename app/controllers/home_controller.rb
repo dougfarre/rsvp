@@ -1,12 +1,41 @@
 class HomeController < ApplicationController
-	# GET /invitations
-  # GET /invitations.json
+
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @invitations }
     end
   end
 
+	def itinerary 
+		respond_to do |format|
+      format.html # index.html.erb
+    end
+	end
+
+	def registry
+		respond_to do |format|
+      format.html # index.html.erb
+    end
+	end
+	
+	def venue 
+		respond_to do |format|
+      format.html # index.html.erb
+    end
+	end
+	
+	def accommodations 
+		respond_to do |format|
+      format.html # index.html.erb
+    end
+	end
+
+
+
+	def thankyou 
+		respond_to do |format|
+      format.html # index.html.erb
+    end
+	end
 
 end

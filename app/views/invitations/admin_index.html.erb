@@ -16,6 +16,23 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="span12">
+		<br/><br/>
+		<fieldset class="gen_title"> 	
+			<legend>owners</h2>
+		</fieldset>
+	</div>
+</div>
+
+<div class="row">
+	<% @reports['owner_hash'].each do |email, count| %>
+		<div class="span3">
+			<span><%= "#{email} : #{count}" %></span>
+		</div>
+	<% end %>
+</div>
+
 <div id="list">
 	<div class="row">
 		<div class="span12">
@@ -98,29 +115,5 @@
 		</div>
 	<% end %>
 
-	<div class="row">
-		<div class="span12">
-			<br/><br/>
-			<fieldset class="gen_title"> 	
-				<legend>owners</h2>
-			</fieldset>
-		</div>
-	</div>
-
-	<div class="row">
-		<!--div class="span2">
-			<div class="right">
-				<span><b>owner : count</b></span>
-			</div>
-		</div-->
-		<div class="span2">
-			&nbsp;
-		</div>	
-		<% @reports['owner_hash'].each do |email, count| %>
-			<div class="span2">
-				<span><%= "#{email} : #{count}" %></span>
-			</div>
-		<% end %>
-	</div>
 			
 </div> <!-- end of list -->

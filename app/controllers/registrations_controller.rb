@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
 				session[:invitation_id] = invitation.id 
 				redirect_to invitations_path() 
 			else
-				redirect_to new_user_registration_path, notice: 'rsvp code not found.'
+				redirect_to new_user_registration_path, notice: 'rsvp code not found'
 			end
 		else
 			redirect_to new_user_registration_path, notice: "you did not enter anything" 

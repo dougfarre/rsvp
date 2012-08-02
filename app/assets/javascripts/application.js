@@ -21,11 +21,20 @@ $(document).ready(function () {
 		return false;			
 	});
 
-	 $("#invitations_search input").keyup(function() {
+	$("#invitations_search input").keyup(function() {
 	 	$.get($("#invitations_search").attr("action"), $("#invitations_search").serialize(), null, "script");
 	  return false;
-	  });
+  });
 
+	$('#add_address').change(function () {
+		if($(this).attr('checked')) {
+			$.getScript('edit');
+		} else {
+			$('#address_div').html("");	
+		}
+	  return false;
+	});
+	
 });
 
 

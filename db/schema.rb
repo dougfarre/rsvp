@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426232839) do
+ActiveRecord::Schema.define(:version => 20120802152223) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(:version => 20120426232839) do
     t.integer  "spots"
     t.string   "login_message"
     t.string   "feedback"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "invite_code"
-    t.integer  "rsvp_number",                  :default => 0
+    t.integer  "rsvp_number",                :default => 0
     t.string   "gift"
-    t.boolean  "thank_you",     :limit => 255, :default => false
+    t.integer  "thank_you",     :limit => 1, :default => 0
     t.integer  "admin_id"
+    t.string   "email"
   end
 
   create_table "users", :force => true do |t|

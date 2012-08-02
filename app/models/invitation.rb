@@ -21,7 +21,7 @@ class Invitation < ActiveRecord::Base
 		owner_hash = Hash.new
 		unless unique_owners.blank?
 			unique_owners.each do |unique_owner|
-				owner_hash[unique_owner.email] = Invitation.where(:admin_id => unique_owner.id).count
+				owner_hash[unique_owner.email] = Invitation.where(:admin_id => unique_owner.id).sum(:spots)
 			end
 		end
 

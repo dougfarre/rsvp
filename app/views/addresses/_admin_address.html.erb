@@ -1,0 +1,53 @@
+<%= fields_for :address do |a| %>
+		<div class="row">
+			<div class="span4">
+				<div class="right">
+					<div class="center2">
+    				<%= a.label :street %>
+    				<%= a.text_field :street %>
+  				</div>
+				</div>
+			</div>
+			<div class="span4">
+  			<div class="center2">
+    			<%= a.label :city %>
+    			<%= a.text_field :city %>
+  			</div>
+			</div>
+
+			<div class="span4">
+  			<div class="left">
+					<div class="center2">
+						<%= a.label :state %>
+    				<%= a.text_field :state %>
+  				</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span4">
+				<div class="right">
+					<div class="center2">
+						<%= a.label :zip %>
+    				<%= a.text_field :zip %>
+  				</div>
+				</div>
+			</div>
+			<div class="span4">
+  			<div class="center2">
+					<%= a.label :cell %>
+    			<%= a.telephone_field :cell %>
+  			</div>
+			</div>
+			<div class="span4">
+  			<div class="left">
+					<div class="center2">
+						<%= a.label :email %>
+    				<%= a.email_field :email %>
+  				</div>
+				</div>
+			</div>
+		</div>	
+	<% end %>
+
