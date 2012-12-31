@@ -18,7 +18,9 @@ test:
 production:
   adapter: mysql 
   database: rsvp 
-  host: instance12584.db.xeround.com
-  port: 8520
-  username: admin 
+  host: localhost 
+  username: root 
   password: h2k21162 
+
+  #host: instance12584.db.xeround.com
+  #port: 8520

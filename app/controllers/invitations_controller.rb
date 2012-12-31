@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
 			return
 		end
 
-		@invitations = Invitation.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
+		@invitations = Invitation.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 100, :page => params[:page])
 		@new_invitation = Invitation.new
 		@reports = Invitation.get_reports
 
@@ -136,6 +136,29 @@ class InvitationsController < ApplicationController
     end
   end
 
+	def send_save_the_date
+		if !admin_signed_in?
+			redirect_to root_path
+			return
+		end
+		
+		invitation = Invitation.find(params[:id])
+		
+		if invitation.spots > 0
+			begin
+				Mailer.save_the_date(invitation).deliver!
+
+				invitation.save_the_date_sent = true
+				invitation.save
+				render :text => "Save the Date email sent!"
+			rescue
+				render :text => "There was an issue sending this Save the Date."
+			end
+		else
+			render :text => "This invitaiton has 0 allowed guests.  No Save the Date sent."
+		end
+	end
+
 	private
 
 	def sort_column
@@ -146,4 +169,5 @@ class InvitationsController < ApplicationController
 	def sort_direction
 		%w[as desc].include?(params[:direction]) ? params[:direction] : "asc"
 	end
-end
+
+	end

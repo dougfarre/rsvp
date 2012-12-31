@@ -6,12 +6,14 @@
 			<div class="span2" >
 				<div class="right" >
 					<div style="width: 100%; height: 25px;"></div>
-					<% if inv.email.blank? %>
+					<% if inv.email.blank? || inv.save_the_date_sent == false %>
 						<table class="red_letters">
 					<% else %>
 						<table>
 					<% end %>
 						<tr/>
+							<td><%= "#{inv.save_the_date_sent}" %></td>
+							<td> | </td>
 							<td><%= link_to 'show', inv %></td>
 							<% if inv.admin_id == current_admin.id %>
 								<td> | </td>

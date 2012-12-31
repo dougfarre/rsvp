@@ -155,12 +155,47 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="span4">
+			<div class="right">
+				<div class="center2">
+    			<span>Thank you note sent?</span>&nbsp;&nbsp;<%= f.check_box :thank_you , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+
+		<div class="span4">
+  		<div class="center2">
+    			<span>Save the date sent?</span>&nbsp;&nbsp;<%= f.check_box :save_the_date_sent , :readonly => true %>
+  		</div>
+		</div>
+
+		<div class="span4">
+  		<div class="left">
+				<div class="center2">
+    			<span>Invitation sent?</span>&nbsp;&nbsp;<%= f.check_box :invitation_sent , :readonly => true %>
+  			</div>
+			</div>
+		</div>
+	</div>
+	
 	<div class="row">
 		<div class="span2">&nbsp;</div>
-		<div class="span8">
-			<div class="center2">
-    		<span>Thank you note sent?</span>&nbsp;&nbsp;<%= f.check_box :thank_you , :readonly => true %>
+	</div>
 
+	<div class="row">
+		<div class="span8 offset2">
+			<div class="center2">
+				<button type="button" value=<%= @invitation.id%> id="send_save_the_date">Send "Save the Date"</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span8 offset2">
+			<div class="center2">
+				<div id="result"></div>
 			</div>
 		</div>
 	</div>
@@ -183,4 +218,13 @@
 <% end %>
 </div>
 
+<script type="text/javascript">
+	$('#send_save_the_date').click(function() {
+		 $.ajax({url: '<%= send_save_the_date_path(:id => @invitation.id.to_s) %>',
+				type: "POST",
+        dataType: 'html',
+				success: function(data) { $('#result').html(data); } });
 
+
+	});
+</script>

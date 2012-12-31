@@ -5,6 +5,7 @@ class Invitation < ActiveRecord::Base
 	before_validation :generate_code
 	validates_uniqueness_of :invite_code
 	validates_presence_of :invite_code, :first_names, :last_name, :spots, :rsvp_number	
+	default_scope :order => "admin_id DESC"
 
 	def self.get_reports
 		reports = Hash.new
@@ -36,6 +37,14 @@ class Invitation < ActiveRecord::Base
   	end
 	end
 
+
+	def set_save_the_date(is_sent)
+		self.save_the_date_sent = is_sent
+	end
+
+	def set_invitation(is_sent)
+		self.invitation_sent = is_sent
+	end
 
 	def generate_code
 		if self.invite_code.blank?

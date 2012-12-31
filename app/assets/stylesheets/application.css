@@ -6,6 +6,20 @@
  *= require_tree .
 */
 
+/*darjeeling limited*/
+
+/*darjeeling limited*/
+
+h1 
+{
+}
+
+.navbar-inner {
+	#background-color: #CCA931 !important;
+}
+
+
+
 .red_letters {
 	color: red;
 }
@@ -163,12 +177,26 @@ input[type="submit"] {
 	margin-right: 5%;
 	font-weight: 300;
   margin-bottom: 18px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	#font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
 
-/*body 				{ padding-top: 7em !important; }
-.nav_center { 
+.navbar  
+{
+	font-family: 'Petit Formal Script', cursive !important;
+}
+
+.navbar a
+{
+	color: yellow !important;
+}
+
+body 
+{ 
+	#font-family: Futura, Verdana, Sans-Serif !important;
+}
+
+/*.nav_center { 
 	padding-top: 1em !important; 
 	font-size: 18px !important;
 }
@@ -189,15 +217,17 @@ input[type="submit"] {
 	text-align: center;
 }
 .masthead p {
-  font-size: 30px;
+	font-family: 'Petit Formal Script', cursive !important;
+  font-size: 22px;
   line-height: 36px;
   margin-left: 5%;
 	margin-right: 5%;
 	font-weight: 300;
   margin-bottom: 18px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	#font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .jumbotron h1 {
+	font-family: 'Petit Formal Script', cursive !important;
 	font-size: 41px;
 	font-weight: bold;
 	letter-spacing: -1px;
