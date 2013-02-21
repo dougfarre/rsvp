@@ -1,3 +1,5 @@
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 <div class="row">
 	<div class="span12">
 		<header class="gen_title"> 	
@@ -5,22 +7,61 @@
 			<p class="notice"><%= notice %></p>
 		</header>
 	</div>
-	<div class="span4">&nbsp;</div>
+
+	<div class="span3 offset1"> 
+		<%= image_tag "/images/eng7.jpg", :size => "200x200", :class => "rsvp_image" %>
+	</div>
 	<div class="span4">
 		<div class="title_wrapper">
 			<div class="sign_in_home">
 				<div class="center">
-					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-						<%= f.submit "enter rsvp code" %>	
-						<div style="display: inline-block; width: 5px;"></div>
-						<%= text_field_tag "invite_code", 'xxxxxx', {:class => 'start_style'} %>
-					<% end %>
+					<%= f.submit "search by rsvpcode" %>	
+					<div style="display: inline-block; width: 5px;"></div>
+					<%= text_field_tag "invite_code", 'xxxxxx', {:class => 'start_style'} %>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<span style="font-size: larger;"><b>OR</b></span>	
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<%= f.submit "search by lastname" %>	
+					<div style="display: inline-block; width: 5px;"></div>
+					<%= text_field_tag "last_name_input", "'smith'", {:class => 'start_style'} %>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="span4"> 
+		<%= image_tag "/images/eng8.jpg", :size => "200x200" %>
+	</div>
+
 </div>
 
+<div class="row">
+	<div class="span4">&nbsp;</div>
+		<div class="span4">
+			<div class="center">
+				<!--span style="font-size: larger;"><b>OR</b></span-->	
+		</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="span4">&nbsp;</div>
+		<div class="span4">
+			<div class="center">
+				<%#= f.submit "search by lastname" %>	
+				<div style="display: inline-block; width: 5px;"></div>
+				<%#= text_field_tag "last_name_input", "'smith'", {:class => 'start_style'} %>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<% end %>
 <script type='text/javascript'>
 	$(document).ready(function () {
 		$('#rsvp').addClass('active');	

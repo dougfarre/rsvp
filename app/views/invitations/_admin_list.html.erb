@@ -15,7 +15,8 @@
 							<td><%= "#{inv.save_the_date_sent}" %></td>
 							<td> | </td>
 							<td><%= link_to 'show', inv %></td>
-							<% if inv.admin_id == current_admin.id %>
+							<%# if inv.admin_id == current_admin.id %>
+							<% if true %>
 								<td> | </td>
     						<td><%= link_to 'edit', edit_invitation_path(inv) %></td>
 								<td> | </td>

@@ -10,7 +10,7 @@
 //= require_tree .
 
 $(document).ready(function () {
-	$('#invite_code').live('click', function () {
+	$('#invite_code, #last_name_input').live('click', function () {
 		$(this).val('');
 		$(this).removeClass('start_style');
 		$(this).addClass('end_style');

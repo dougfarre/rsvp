@@ -161,7 +161,7 @@ input[type="submit"] {
 	min-width: 380px;
 	height: 75px;
 	display: inline-block;
-	background-color: black;
+	/*background-color: black;*/
 	vertical-align: middle;	
 }
 
@@ -243,4 +243,7 @@ body
 	line-height: 1;
 	margin-bottom: 9px;
 }
-
+.rsvp_image 
+{
+	margin-left: 75px;
+}

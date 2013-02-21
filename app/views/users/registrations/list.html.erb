@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="span12">
+		<header class="gen_title"> 	
+			<h2 class="center-align">Choose Name</h2>
+			<p class="notice"><%= notice %></p>
+		</header>
+	</div>
+<div>
+<% @invites.each do |invite| %>
+<div class="row">
+	<div class="span4">&nbsp;</div>
+	<div class="span4">
+		<div class="title_wrapper">
+			<div class="sign_in_home">
+				<div class="center">
+					<%= button_to invite.first_names + ' ' + invite.last_name, login_to_invite_path(:i_id => invite.id), :method => :post %> 
+					<div style="display: inline-block; width: 5px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+
+<script type='text/javascript'>
+	$(document).ready(function () {
+		$('#rsvp').addClass('active');	
+	});
+</script>
